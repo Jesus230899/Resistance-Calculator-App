@@ -1,3 +1,5 @@
+import 'package:resistance_calculator_app/theme/theme.dart';
+
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
@@ -18,6 +20,8 @@ class MainApplication extends StatelessWidget {
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: theme,
         navigatorKey: locator<NavigatorService>().navigatorKey,
         home: HomeView(),
       ),

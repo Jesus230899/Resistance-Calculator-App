@@ -2,5 +2,22 @@
     "name": "Calculadora de resistencia",
     "created": "Creado por:",
     "changeLanguage": "Cambiar idioma",
-    "flutterVersion": "Versión de Flutter"
+    "flutterVersion": "Versión de Flutter",
+    "selectBands": "Selecciona el nùmero de bandas",
+    "bands": "bandas",
+    "band": "banda",
+    "black": "Negro",
+    "brown": "Cafe",
+    "red": "Rojo",
+    "orange": "Naranja",
+    "yellow": "Amarillo",
+    "green": "Verde",
+    "blue": "Azul",
+    "violet": "Violeta",
+    "grey": "Gris",
+    "white": "Blanco",
+    "gold": "Oro",
+    "silver": "Plata",
+    "selectThe": "Selecciona la",
+    "selectColor": "Selecciona un color"
 }

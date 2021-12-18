@@ -26,8 +26,9 @@ class MainApplication extends StatelessWidget {
         builder: (context) => MultiProvider(
           providers: ProviderInjector.providers,
           child: MaterialApp(
-            locale:
-                Locale(Provider.of<MainProvider>(context, listen: true).locale),
+            locale: Locale('en'),
+            // locale:
+            //     Locale(Provider.of<MainProvider>(context, listen: true).locale),
             localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,

@@ -1,6 +1,9 @@
 library home_view;
 
+import 'package:resistance_calculator_app/core/models/color_band_model.dart';
 import 'package:resistance_calculator_app/core/providers.dart';
+import 'package:resistance_calculator_app/theme/theme.dart';
+import 'package:resistance_calculator_app/widgets/alerts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -19,7 +22,7 @@ class HomeView extends StatelessWidget {
         viewModelBuilder: () => viewModel,
         onModelReady: (viewModel) {
           // print('Entra en HomeView');
-          // viewModel.onInit(context);
+          viewModel.onInit(context);
           // Do something once your viewModel is initialized
         },
         builder: (context, viewModel, child) {

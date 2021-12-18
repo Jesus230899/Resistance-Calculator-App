@@ -2,5 +2,22 @@
     "name": "Resistance Calculator",
     "created": "Created by:",
     "changeLanguage": "Change language",
-    "flutterVersion": "Flutter version"
+    "flutterVersion": "Flutter version",
+    "selectBands": "Select the number of bands",
+    "bands": "bands",
+    "band": "band",
+    "black": "Black",
+    "brown": "Brown",
+    "red": "Red",
+    "orange": "Orange",
+    "yellow": "Yellow",
+    "green": "Green",
+    "blue": "Blue",
+    "violet": "Violet",
+    "grey": "Grey",
+    "white": "White",
+    "gold": "Gold",
+    "silver": "Silver",
+    "selectThe": "Select the",
+    "selectColor": "Select a color"
 }

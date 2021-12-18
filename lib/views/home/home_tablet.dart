@@ -16,14 +16,14 @@ class _HomeTablet extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times: ',
-              style: TextStyle(fontSize: 14),
-            ),
-            Text(
-              '${viewModel.counter}',
-              // style: Theme.of(context).textTheme.display1,
-            ),
+            // Text(
+            //   'You have pushed the button this many times: ',
+            //   style: TextStyle(fontSize: 14),
+            // ),
+            // Text(
+            //   '${viewModel.counter}',
+            //   // style: Theme.of(context).textTheme.display1,
+            // ),
           ],
         ),
       ),

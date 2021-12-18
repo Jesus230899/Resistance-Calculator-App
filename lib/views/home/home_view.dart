@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 
 part 'home_mobile.dart';
 part 'home_tablet.dart';
-part 'home_desktop.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -19,12 +18,13 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.reactive(
         viewModelBuilder: () => viewModel,
         onModelReady: (viewModel) {
+          // print('Entra en HomeView');
+          // viewModel.onInit(context);
           // Do something once your viewModel is initialized
         },
         builder: (context, viewModel, child) {
           return ScreenTypeLayout(
             mobile: _HomeMobile(viewModel),
-            desktop: _HomeDesktop(viewModel),
             tablet: _HomeTablet(viewModel),
           );
         });

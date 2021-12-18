@@ -1,3 +1,6 @@
 {
-    "name": "Calculadora de resistencia"
+    "name": "Calculadora de resistencia",
+    "created": "Creado por:",
+    "changeLanguage": "Cambiar idioma",
+    "flutterVersion": "Versión de Flutter"
 }

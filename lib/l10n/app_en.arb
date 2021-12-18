@@ -1,3 +1,6 @@
 {
-    "name": "Resistance Calculator"
+    "name": "Resistance Calculator",
+    "created": "Created by:",
+    "changeLanguage": "Change language",
+    "flutterVersion": "Flutter version"
 }

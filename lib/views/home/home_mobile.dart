@@ -14,6 +14,7 @@ class _HomeMobile extends StatelessWidget {
     );
   }
 
+  // AppBar
   _appBar(BuildContext context) {
     return AppBar(
       title: Text(AppLocalizations.of(context).name),
@@ -38,19 +39,30 @@ class _HomeMobile extends StatelessWidget {
                 _itemRadioButton(5, context),
               ],
             ),
+            Text(AppLocalizations.of(context).selectColorBands,
+                style:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
             _listBands(context),
             const Divider(),
+            Text(AppLocalizations.of(context).selectMultiplier,
+                style:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
             _itemMultiplier(context),
             const SizedBox(height: 30),
-            const Text(
-              'El valor de la resistencia es: ',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            Text(vM.resistanceValue + ' Ohms',
-                style: const TextStyle(
-                    color: AppColors.primaryColor,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold))
+            vM.resistanceValue != ''
+                ? Text(
+                    AppLocalizations.of(context).valueResistance,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20),
+                  )
+                : Container(),
+            vM.resistanceValue != ''
+                ? Text(vM.resistanceValue + ' Ohms',
+                    style: const TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold))
+                : Container()
             // _resistanceValue(),
           ],
         ),
@@ -139,7 +151,7 @@ class _HomeMobile extends StatelessWidget {
                     Text(_getNameMultiplier(vM.multiplier), style: style),
                   ],
                 )
-              : const Text('Selecciona un multiplicador')),
+              : Text(AppLocalizations.of(context).notMultiplier)),
     );
   }
 

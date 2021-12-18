@@ -19,5 +19,9 @@
     "gold": "Oro",
     "silver": "Plata",
     "selectThe": "Selecciona la",
-    "selectColor": "Selecciona un color"
+    "selectColor": "Selecciona un color",
+    "selectColorBands": "Selecciona los colores de las bandas",
+    "selectmultiplier": "Selecciona el multiplicador",
+    "notMultiplier": "No se ha seleccionado un multiplicador",
+    "valueResistance": "El valor de la resistencia es:"
 }

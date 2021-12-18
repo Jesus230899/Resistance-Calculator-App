@@ -19,5 +19,9 @@
     "gold": "Gold",
     "silver": "Silver",
     "selectThe": "Select the",
-    "selectColor": "Select a color"
+    "selectColor": "Select a color",
+    "selectColorBands": "Select color of bands",
+    "selectMultiplier": "Select the multiplier",
+    "notMultiplier": "Not multipler selected",
+    "valueResistance": "The resistance value is:"
 }

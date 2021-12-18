@@ -131,70 +131,63 @@ class HomeViewModel extends BaseViewModel {
           multiplier.name == null) {
         resistanceValue = '';
       } else {
-        print('Calculando el multiplier');
-        print(calculateValueMultiplier());
-        // CalculateResistance
         String bandsValue = listBandSelected[0].value.toString() +
             listBandSelected[1].value.toString();
-        if (multiplier.name == 'Gold' ||
-            multiplier.name == 'Silver' ||
-            multiplier.name == 'Oro' ||
-            multiplier.name == 'Plata') {
-          double resistance =
-              int.parse(bandsValue) / multiplier.valueMultiplier;
-          print('Esta es la resistencia cuando sleeccionan oro o plata');
-          print(resistance.toString());
-        } else {
-          int resistance = int.parse(bandsValue) * calculateValueMultiplier();
-          if (resistance.toString().length >= 4 &&
-              resistance.toString().length <= 6) {
-            print('La resistencia es: ' + (resistance / 1000).toString() + 'K');
-          } else if (resistance.toString().length >= 7 &&
-              resistance.toString().length <= 9) {
-            print('La resistencia es: ' +
-                (resistance / 1000000).toString() +
-                'M');
-          } else if (resistance.toString().length >= 7 &&
-              resistance.toString().length >= 10) {
-            print('La resistencia es: ' +
-                (resistance / 1000000000).toString() +
-                'G');
-          } else {
-            print('La resistencia es: ' + resistance.toInt().toString());
-          }
-        }
-
-        // return Text(
-        //   'El valor de la resistencia es: \n' + vM.resistanceValue,
-        //   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-        // );
+        _formatResistance(bandsValue);
+      }
+    } else {
+      if (listBandSelected[0].name == null ||
+          listBandSelected[1].name == null ||
+          listBandSelected[2].name == null ||
+          multiplier.name == null) {
+        resistanceValue = '';
+      } else {
+        String bandsValue = listBandSelected[0].value.toString() +
+            listBandSelected[1].value.toString() +
+            listBandSelected[2].value.toString();
+        _formatResistance(bandsValue);
       }
     }
-    //  else {
-    //   if (vM.listBandSelected[0].name == null ||
-    //       vM.listBandSelected[1].name == null ||
-    //       vM.listBandSelected[2].name == null ||
-    //       vM.multiplier.name == null) {
-    //     return Container();
-    //   } else {
-    //     return Text(
-    //       'El valor de la resistencia es: \n' + vM.resistanceValue,
-    //       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-    //     );
-    //   }
-    // }
-    // }
   }
 
   int calculateValueMultiplier() {
     if (multiplier.identifier == 'K') {
       return multiplier.valueMultiplier * 1000;
     } else if (multiplier.identifier == 'M') {
-      return multiplier.valueMultiplier * 1000 * 1000;
+      return multiplier.valueMultiplier * 1000000;
     } else if (multiplier.identifier == 'G') {
-      return multiplier.valueMultiplier * 1000 * 1000 * 1000;
+      return multiplier.valueMultiplier * 1000000000;
     } else {
       return multiplier.valueMultiplier;
+    }
+  }
+
+  void _formatResistance(String bandsValue) {
+    if (multiplier.name == 'Gold' ||
+        multiplier.name == 'Silver' ||
+        multiplier.name == 'Oro' ||
+        multiplier.name == 'Plata') {
+      double resistance = int.parse(bandsValue) / multiplier.valueMultiplier;
+      resistanceValue = resistance.toString();
+    } else {
+      int resistance = int.parse(bandsValue) * calculateValueMultiplier();
+      if (resistance.toString().length >= 4 &&
+          resistance.toString().length <= 6) {
+        // print('La resistencia es: ' + (resistance / 1000).toString() + 'K');
+        resistanceValue = (resistance / 1000).toString() + 'K';
+      } else if (resistance.toString().length >= 7 &&
+          resistance.toString().length <= 9) {
+        // print('La resistencia es: ' + (resistance / 1000000).toString() + 'M');
+        resistanceValue = (resistance / 1000000).toString() + 'M';
+      } else if (resistance.toString().length >= 7 &&
+          resistance.toString().length >= 10) {
+        // print(
+        // 'La resistencia es: ' + (resistance / 1000000000).toString() + 'G');
+        resistanceValue = (resistance / 1000000000).toString() + 'G';
+      } else {
+        // print('La resistencia es: ' + resistance.toInt().toString());
+        resistanceValue = resistance.toInt().toString();
+      }
     }
   }
 

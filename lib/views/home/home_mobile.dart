@@ -4,15 +4,12 @@ part of home_view;
 class _HomeMobile extends StatelessWidget {
   final HomeViewModel vM;
 
-  _HomeMobile(this.vM);
+  const _HomeMobile(this.vM);
 
-  MainProvider _mainProvider;
   @override
   Widget build(BuildContext context) {
-    _mainProvider = Provider.of<MainProvider>(context);
     return Scaffold(
       appBar: _appBar(context),
-      // drawer: _drawer(context),
       body: _body(context),
     );
   }
@@ -22,78 +19,6 @@ class _HomeMobile extends StatelessWidget {
       title: Text(AppLocalizations.of(context).name),
     );
   }
-
-  // _drawer(BuildContext context) {
-  //   return Drawer(
-  //     child: Padding(
-  //       padding: const EdgeInsets.symmetric(vertical: 20),
-  //       child: Column(
-  //         children: [
-  //           ListTile(
-  //             title: Text(AppLocalizations.of(context).created,
-  //                 style: const TextStyle(fontSize: 18)),
-  //             subtitle: const Text('Jesús Alberto Aguilar Martínez'),
-  //           ),
-  //           const Divider(),
-  //           ListTile(
-  //             title: Text(AppLocalizations.of(context).changeLanguage),
-  //             subtitle: DropdownButton<String>(
-  //               value: _getValueDropDown(),
-  //               underline: Container(
-  //                 height: 1,
-  //                 color: Colors.transparent,
-  //               ),
-  //               elevation: 16,
-  //               onChanged: (value) => _onChangedDropDowm(
-  //                   value == 'Ingles' || value == 'English' ? 'en' : 'es',
-  //                   context),
-  //               items:
-  //                   vM.languages.map<DropdownMenuItem<String>>((String value) {
-  //                 return DropdownMenuItem<String>(
-  //                   value: value,
-  //                   child: Text(value),
-  //                 );
-  //               }).toList(),
-  //             ),
-  //           ),
-  //           Expanded(
-  //               child: Column(
-  //             mainAxisAlignment: MainAxisAlignment.end,
-  //             children: [
-  //               Text(AppLocalizations.of(context).flutterVersion + ': 2.5.3',
-  //                   style: const TextStyle(fontWeight: FontWeight.bold))
-  //             ],
-  //           ))
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // String _getValueDropDown() {
-  //   if (vM.languages[0] == 'Spanish') {
-  //     return _mainProvider.locale == 'en' ? 'Spanish' : 'English';
-  //   } else {
-  //     return _mainProvider.locale == 'es' ? 'Español' : 'Ingles';
-  //   }
-  // }
-
-  // void _onChangedDropDowm(String value, BuildContext context) {
-  //   // if (value == 'es') {
-  //   _mainProvider.changeLocale = value;
-  //   // _mainProvider.changeLocale = value;
-  //   // vM.changeLanguages(value, context);
-  //   // vM.fillColorBands(context);
-  //   // } else {
-  //   // _mainProvider.changeLocale = value;
-  //   // _mainProvider.changeLocale = value;
-  //   vM.changeLanguages(value, context);
-  //   // vM.fillColorBands(context);
-  //   // }
-  //   // print(_mainProvider.locale);
-  //   // vM.fillColorBands(context);
-  //   vM.fillColorBands(context);
-  // }
 
   // Body
   Widget _body(BuildContext context) {
@@ -117,7 +42,16 @@ class _HomeMobile extends StatelessWidget {
             const Divider(),
             _itemMultiplier(context),
             const SizedBox(height: 30),
-            _resistanceValue(),
+            const Text(
+              'El valor de la resistencia es: ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            Text(vM.resistanceValue + ' Ohms',
+                style: const TextStyle(
+                    color: AppColors.primaryColor,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold))
+            // _resistanceValue(),
           ],
         ),
       ),
@@ -263,33 +197,6 @@ class _HomeMobile extends StatelessWidget {
           colorBand.valueMultiplier.toString() +
           ' ' +
           (colorBand.identifier ?? '');
-    }
-  }
-
-  Widget _resistanceValue() {
-    if (vM.numberBands == 4) {
-      if (vM.listBandSelected[0].name == null ||
-          vM.listBandSelected[1].name == null ||
-          vM.multiplier.name == null) {
-        return Container();
-      } else {
-        return Text(
-          'El valor de la resistencia es: \n' + vM.resistanceValue,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-        );
-      }
-    } else {
-      if (vM.listBandSelected[0].name == null ||
-          vM.listBandSelected[1].name == null ||
-          vM.listBandSelected[2].name == null ||
-          vM.multiplier.name == null) {
-        return Container();
-      } else {
-        return Text(
-          'El valor de la resistencia es: \n' + vM.resistanceValue,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-        );
-      }
     }
   }
 }

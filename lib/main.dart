@@ -9,6 +9,10 @@ import 'views/home/home_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// This project is maked with Flutter 2.5.3 in stable channel
+// The architecture is MVVM;
+// Created by Jesus Alberto Aguilar Martinez
+
 void main() async {
   await LocatorInjector.setupLocator();
   runApp(const MainApplication());
@@ -20,31 +24,23 @@ class MainApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MainProvider>(
-      create: (context) => MainProvider(),
-      child: Builder(
-        builder: (context) => MultiProvider(
-          providers: ProviderInjector.providers,
-          child: MaterialApp(
-            locale: Locale('en'),
-            // locale:
-            //     Locale(Provider.of<MainProvider>(context, listen: true).locale),
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: const [
-              Locale('en', ''), // English, no country code
-              Locale('es', ''), // Spanish, no country code
-            ],
-            debugShowCheckedModeBanner: false,
-            theme: theme,
-            navigatorKey: locator<NavigatorService>().navigatorKey,
-            home: HomeView(),
-          ),
-        ),
+    return MultiProvider(
+      providers: ProviderInjector.providers,
+      child: MaterialApp(
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', ''), // English, no country code
+          Locale('es', ''), // Spanish, no country code
+        ],
+        debugShowCheckedModeBanner: false,
+        theme: theme,
+        navigatorKey: locator<NavigatorService>().navigatorKey,
+        home: HomeView(),
       ),
     );
   }

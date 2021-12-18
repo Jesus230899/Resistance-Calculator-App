@@ -27,11 +27,11 @@ class _HomeTablet extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: viewModel.increment,
-        backgroundColor: Colors.indigo,
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.add),
+      //   // onPressed: viewModel.increment,
+      //   backgroundColor: Colors.indigo,
+      // ),
     );
   }
 }

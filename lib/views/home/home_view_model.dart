@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:resistance_calculator_app/core/base/base_view_model.dart';
+import 'package:resistance_calculator_app/core/providers.dart';
 
 class HomeViewModel extends BaseViewModel {
   int _counter;
@@ -11,5 +14,7 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void increment() => this.counter += 1;
+  void changeLanguage(BuildContext context) {
+    // print(Provider.of<MainProvider>(context).locale);
+  }
 }

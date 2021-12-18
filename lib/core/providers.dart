@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:provider/single_child_widget.dart';
 
 import '../core/locator.dart';
@@ -18,4 +19,14 @@ class ProviderInjector {
   static final List<SingleChildWidget> _dependentServices = [];
 
   static final List<SingleChildWidget> _consumableServices = [];
+}
+
+class MainProvider with ChangeNotifier {
+  String _locale = 'es';
+
+  String get locale => _locale;
+  set changeLocale(String value) {
+    _locale = value;
+    notifyListeners();
+  }
 }

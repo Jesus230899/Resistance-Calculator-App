@@ -27,11 +27,11 @@ class _HomeDesktop extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: viewModel.increment,
-        backgroundColor: Colors.amber,
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.add),
+      //   onPressed: viewModel.increment,
+      //   backgroundColor: Colors.amber,
+      // ),
     );
   }
 }
